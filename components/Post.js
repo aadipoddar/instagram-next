@@ -36,6 +36,17 @@ function Post({ id, username, userImg, img, caption }) {
                 alt=""
             />
 
+            {/* Buttons */}
+            <div className='flex justify-between px-4 pt-4'>
+                <div className='flex space-x-4'>
+                    <HeartIcon className="btn" />
+                    <ChatIcon className="btn" />
+                    <PaperAirplaneIcon className="btn" />
+                </div>
+
+                <BookmarkIcon className="btn" />
+            </div>
+
         </div>
     )
 }
