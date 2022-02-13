@@ -47,6 +47,12 @@ function Post({ id, username, userImg, img, caption }) {
                 <BookmarkIcon className="btn" />
             </div>
 
+            {/* Caption */}
+            <p className='p-5 truncate'>
+                <span className='font-bold  mr-1'>{username} </span>
+                {caption}
+            </p>
+
         </div>
     )
 }
