@@ -52,6 +52,7 @@ function Post({ id, username, userImg, img, caption }) {
                 <img
                     className='rounded-full h-12 w-12 object-contain border p-1 mr-3'
                     src={userImg}
+                    alt='Profile Image'
                 />
 
                 <p className='flex-1 font-bold'>
@@ -64,6 +65,7 @@ function Post({ id, username, userImg, img, caption }) {
             <img
                 src={img}
                 className='object-cover w-full'
+                alt='Post'
             />
 
             {/* Buttons */}
@@ -94,6 +96,7 @@ function Post({ id, username, userImg, img, caption }) {
                             <img
                                 className='h-7 rounded-full'
                                 src={comment.data().userImage}
+                                alt='Profile Image'
                             />
 
                             <p className='text-sm flex-1'>

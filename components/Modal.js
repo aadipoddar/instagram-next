@@ -101,6 +101,7 @@ function Modal() {
                                         src={selectedFile}
                                         className='w-full object-contain cursor-pointer'
                                         onClick={() => setSelectedFile(null)}
+                                        alt='Selected File'
                                     />
                                 ) : (
                                     <div

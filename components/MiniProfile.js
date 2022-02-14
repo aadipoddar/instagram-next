@@ -8,6 +8,7 @@ function MiniProfile() {
             <img
                 className='w-16 h-16 rounded-full border p-[2px]'
                 src={session?.user?.image}
+                alt='Profile Image'
             />
 
             <div className='flex-1 mx-4'>

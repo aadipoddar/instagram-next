@@ -19,6 +19,7 @@ function signin({ providers }) {
                 <img
                     className='w-80'
                     src='https://links.papareact.com/ocw'
+                    alt='Instagram'
                 />
 
                 <p className='font-xs italic'>
