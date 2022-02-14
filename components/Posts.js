@@ -13,10 +13,8 @@ function Posts() {
                 collection(db, 'posts'),
                 orderBy('timestamp', 'desc')), snapshot => {
                     setPosts(snapshot.docs)
-                })
-        , [db])
-
-    console.log(posts)
+                }),
+        [db])
 
     return (
         <div>

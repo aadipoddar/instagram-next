@@ -24,11 +24,12 @@ function Post({ id, username, userImg, img, caption }) {
     const [comments, setComments] = useState([])
 
     useEffect(() =>
-        onSnapshot(query(collection(db, 'posts', id, 'comments'),
+        onSnapshot(query(
+            collection(db, 'posts', id, 'comments'),
             orderBy('timestamp', 'desc')),
             snapshot =>
-                setComments(snapshot.docs))
-        , [db])
+                setComments(snapshot.docs)),
+        [db])
 
     const sendComment = async (e) => {
         e.preventDefault()
