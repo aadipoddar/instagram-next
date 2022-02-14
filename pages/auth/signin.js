@@ -8,8 +8,8 @@ function signin({ providers }) {
         <>
             <Head>
                 <title>Sign In</title>
-                <meta name="description" content="Instagram Clone in Next JS" />
-                <link rel="icon" href="/InstagramLogo.png" />
+                <meta name='description' content='Instagram Clone in Next JS' />
+                <link rel='icon' href='/InstagramLogo.png' />
             </Head>
 
             <Header />
@@ -19,12 +19,11 @@ function signin({ providers }) {
                 <img
                     className='w-80'
                     src='https://links.papareact.com/ocw'
-                    alt=''
                 />
 
                 <p className='font-xs italic'>
                     This App is build by{' '}
-                    <Link href="https://aadi.vercel.app" target="_blank">
+                    <Link href='https://aadi.vercel.app' target='_blank'>
                         A̲a̲d̲i̲ P̲o̲d̲d̲a̲r̲
                     </Link>
                 </p>
@@ -34,7 +33,7 @@ function signin({ providers }) {
                         <div key={provider.name}>
                             <button
                                 className='p-3 bg-blue-500 rounded-lg text-white'
-                                onClick={() => SignIntoProvider(provider.id, { callbackUrl: "/" })}
+                                onClick={() => SignIntoProvider(provider.id, { callbackUrl: '/' })}
                             >
                                 Sign in with {provider.name}
                             </button>

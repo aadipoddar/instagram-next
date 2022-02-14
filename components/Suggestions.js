@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 function Suggestions() {
 
-    const { faker } = require('@faker-js/faker');
-    const [suggestions, setSuggestions] = useState([]);
+    const { faker } = require('@faker-js/faker')
+    const [suggestions, setSuggestions] = useState([])  
 
     useEffect(() => {
         const suggestions = [...Array(5)].map((_, i) => (
@@ -29,7 +29,6 @@ function Suggestions() {
                         <img
                             className='w-10 h-10 rounded-full border p-[2px]'
                             src={profile.avatar}
-                            alt=''
                         />
 
                         <div className='flex-1 ml-4'>

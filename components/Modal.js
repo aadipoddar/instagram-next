@@ -29,11 +29,9 @@ function Modal() {
             timestamp: serverTimestamp()
         })
 
-        console.log("New Doc with Id", docRef.id)
-
         const imageRef = ref(storage, `posts/${docRef.id}/image`)
 
-        await uploadString(imageRef, selectedFile, "data_url").then(
+        await uploadString(imageRef, selectedFile, 'data_url').then(
             async (snapshot) => {
                 const downloadURL = await getDownloadURL(imageRef)
 
@@ -103,7 +101,6 @@ function Modal() {
                                         src={selectedFile}
                                         className='w-full object-contain cursor-pointer'
                                         onClick={() => setSelectedFile(null)}
-                                        alt=''
                                     />
                                 ) : (
                                     <div
@@ -156,7 +153,7 @@ function Modal() {
                                            disabled:cursor-not-allowed hover:disabled:bg-gray-300'
                                         onClick={uploadPost}
                                     >
-                                        {loading ? "Uploading..." : "Upload Post"}
+                                        {loading ? 'Uploading...' : 'Upload Post'}
                                     </button>
                                 </div>
 

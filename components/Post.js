@@ -20,7 +20,7 @@ import {
 function Post({ id, username, userImg, img, caption }) {
 
     const { data: session } = useSession()
-    const [comment, setComment] = useState("")
+    const [comment, setComment] = useState('')
     const [comments, setComments] = useState([])
 
     useEffect(() =>
@@ -34,7 +34,7 @@ function Post({ id, username, userImg, img, caption }) {
         e.preventDefault()
 
         const commentToSend = comment
-        setComment('');
+        setComment('')
 
         await addDoc(collection(db, 'posts', id, 'comments'), {
             comment: commentToSend,
@@ -50,34 +50,32 @@ function Post({ id, username, userImg, img, caption }) {
             {/* Header */}
             <div className='flex items-center p-5'>
                 <img
-                    className="rounded-full h-12 w-12 object-contain border p-1 mr-3"
+                    className='rounded-full h-12 w-12 object-contain border p-1 mr-3'
                     src={userImg}
-                    alt=""
                 />
 
                 <p className='flex-1 font-bold'>
                     {username}
                 </p>
-                <DotsHorizontalIcon className="h-5" />
+                <DotsHorizontalIcon className='h-5' />
             </div>
 
             {/* Image */}
             <img
                 src={img}
-                className="object-cover w-full"
-                alt=""
+                className='object-cover w-full'
             />
 
             {/* Buttons */}
             {session && (
                 <div className='flex justify-between px-4 pt-4'>
                     <div className='flex space-x-4'>
-                        <HeartIcon className="btn" />
-                        <ChatIcon className="btn" />
-                        <PaperAirplaneIcon className="btn" />
+                        <HeartIcon className='btn' />
+                        <ChatIcon className='btn' />
+                        <PaperAirplaneIcon className='btn' />
                     </div>
 
-                    <BookmarkIcon className="btn" />
+                    <BookmarkIcon className='btn' />
                 </div>
             )}
 
@@ -96,7 +94,6 @@ function Post({ id, username, userImg, img, caption }) {
                             <img
                                 className='h-7 rounded-full'
                                 src={comment.data().userImage}
-                                alt=''
                             />
 
                             <p className='text-sm flex-1'>
@@ -117,7 +114,7 @@ function Post({ id, username, userImg, img, caption }) {
             {/* Input Box */}
             {session && (
                 <form className='flex items-center p-4'>
-                    <EmojiHappyIcon className="h-7" />
+                    <EmojiHappyIcon className='h-7' />
 
                     <input
                         type='text'
