@@ -1,4 +1,7 @@
 import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
+import { addDoc, onSnapshot, query, collection, serverTimestamp, orderBy } from '@firebase/firestore'
+import { db } from '../firebase'
 import {
     BookmarkIcon,
     ChatIcon,
@@ -12,9 +15,33 @@ import {
     HeartIcon as HeartIconFilled
 } from '@heroicons/react/solid'
 
+
 function Post({ id, username, userImg, img, caption }) {
 
     const { data: session } = useSession()
+    const [comment, setComment] = useState("")
+    const [comments, setComments] = useState([])
+
+    useEffect(() =>
+        onSnapshot(query(collection(db, 'posts', id, 'comments'),
+            orderBy('timestamp', 'desc')),
+            snapshot =>
+                setComments(snapshot.docs))
+        , [db])
+
+    const sendComment = async (e) => {
+        e.preventDefault()
+
+        const commentToSend = comment
+        setComment('');
+
+        await addDoc(collection(db, 'posts', id, 'comments'), {
+            comment: commentToSend,
+            username: session.user.username,
+            userImage: session.user.image,
+            timestamp: serverTimestamp()
+        })
+    }
 
     return (
         <div className='bg-white my-7 border rounded-sm'>
@@ -66,11 +93,20 @@ function Post({ id, username, userImg, img, caption }) {
 
                     <input
                         type='text'
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
                         placeholder='Add a comment...'
                         className='border-none flex-1 focus:ring-0 outline-none'
                     />
 
-                    <button className='font-semibold text-blue-400'>Post</button>
+                    <button
+                        type='submit'
+                        disabled={!comment.trim()}
+                        onClick={sendComment}
+                        className='font-semibold text-blue-400'
+                    >
+                        Post
+                    </button>
                 </form>
             )}
 
