@@ -17,7 +17,7 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 NEXTAUTH_URL=
 ```
-
+Then :-
 ```bash
 npm i
 npm run dev
